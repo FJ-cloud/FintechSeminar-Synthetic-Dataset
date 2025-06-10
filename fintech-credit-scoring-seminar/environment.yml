@@ -1,0 +1,26 @@
+name: fintech-credit-scoring
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pandas>=1.5.0
+  - numpy>=1.24.0
+  - scikit-learn>=1.2.0
+  - matplotlib>=3.6.0
+  - seaborn>=0.12.0
+  - jupyter>=1.0.0
+  - ipykernel>=6.0.0
+  - scipy>=1.10.0
+  - plotly>=5.0.0
+  - statsmodels>=0.14.0
+  - lightgbm>=3.3.0
+  - xgboost>=1.7.0
+  - tqdm>=4.65.0
+  - joblib>=1.2.0
+  - pip
+  - pip:
+    - sdv>=1.0.0
+    - ctgan>=0.7.0
+    - kaleido>=0.2.0
+    - wordcloud>=1.9.0 
