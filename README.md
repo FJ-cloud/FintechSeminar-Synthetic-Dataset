@@ -64,6 +64,3 @@ Outputs land in `data/` and `figures/`.
 Core libs: pandas · numpy · scikit-learn · sdv (CTGAN) · matplotlib.
 
 AI note: code scaffolding drafted with Claude 4 and GPT-4; all scripts were executed and checked by the author.
-
-```
-```
