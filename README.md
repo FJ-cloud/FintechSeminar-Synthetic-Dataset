@@ -1,4 +1,4 @@
-```markdown
+
 # Fintech Credit-Scoring Seminar
 
 A reproducible pipeline that  
@@ -7,10 +7,10 @@ A reproducible pipeline that
 2. trains logistic-regression and random-forest models with balanced training,  
 3. reports fidelity checks and ROC-based performance figures.
 
----
+
 
 ## Structure
-```
+
 
 notebooks/                    ← main Python scripts
 ├─ synthetic\_data\_generation\_scorable\_population.py
@@ -23,9 +23,9 @@ data/                         ← generated CSV files
 figures/                      ← PDF figures
 requirements.txt              ← pinned packages
 
-````
 
----
+
+
 
 ## Quick start
 ```bash
