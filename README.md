@@ -1,59 +1,69 @@
-````markdown
-# Fintech Credit-Scoring Seminar  
-Synthetic Data & Model Benchmarks
+```markdown
+# Fintech Credit-Scoring Seminar
 
-A minimal, reproducible pipeline that
+A reproducible pipeline that  
 
-* builds six synthetic datasets (scorable / unscorable, three generators),
-* trains logistic-regression and random-forest baselines,
-* outputs fidelity checks and ROC figures.
+1. builds six synthetic credit-risk datasets (scorable / unscorable; basic, copula, CTGAN),  
+2. trains logistic-regression and random-forest models with balanced training,  
+3. reports fidelity checks and ROC-based performance figures.
 
 ---
 
-## Quick Start
+## Structure
+```
 
+notebooks/                    ← main Python scripts
+├─ synthetic\_data\_generation\_scorable\_population.py
+├─ synthetic\_data\_generation\_unscorable\_population.py
+├─ balanced\_modeling.py
+├─ full\_test\_modeling.py
+├─ marginal\_fidelity\_assessment.py
+└─ create\_publication\_visuals.py
+data/                         ← generated CSV files
+figures/                      ← PDF figures
+requirements.txt              ← pinned packages
+
+````
+
+---
+
+## Quick start
 ```bash
 git clone https://github.com/<user>/fintech-synthetic-credit.git
 cd fintech-synthetic-credit
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
-# generate data
-python notebooks/02a_synthetic_data_generation_scorable_population.py
-python notebooks/02b_synthetic_data_generation_unscorable_population.py
+# generate datasets
+python notebooks/synthetic_data_generation_scorable_population.py
+python notebooks/synthetic_data_generation_unscorable_population.py
 
-# summarise + train
-python notebooks/03_data_summarizer.py
-python notebooks/08_balanced_modeling.py
+# run quality checks and models
+python notebooks/marginal_fidelity_assessment.py
+python notebooks/balanced_modeling.py
+
+# create publication figures
+python notebooks/create_publication_visuals.py
 ````
 
-Figures appear in `figures/`, results in `data/`.
+Outputs land in `data/` and `figures/`.
 
 ---
 
-## Key Scripts
+## Key components
 
-| Script                          | Role                                |
-| ------------------------------- | ----------------------------------- |
-| `02a_*_scorable_*.py`           | Scorable synthetic datasets         |
-| `02b_*_unscorable_*.py`         | Unscorable synthetic datasets       |
-| `03_data_summarizer.py`         | Marginal-gap and KS checks          |
-| `08_balanced_modeling.py`       | Logit and RF with balanced training |
-| `create_publication_visuals.py` | Marginal bars, heat maps, ROC       |
+| Script                            | Purpose                                         |
+| --------------------------------- | ----------------------------------------------- |
+| `*_scorable_population.py`        | synthetic data for borrowers with bureau scores |
+| `*_unscorable_population.py`      | synthetic data for thin-file borrowers          |
+| `balanced_modeling.py`            | logit + random forest with rare-event sampling  |
+| `full_test_modeling.py`           | balanced train plus independent hold-out test   |
+| `marginal_fidelity_assessment.py` | χ², KS, and gap statistics                      |
+| `create_publication_visuals.py`   | bar charts, heat maps, ROC curves               |
 
----
+Core libs: pandas · numpy · scikit-learn · sdv (CTGAN) · matplotlib.
 
-## Dependencies
-
-pandas · numpy · scikit-learn · sdv · matplotlib
-
-Full list in `requirements.txt`.
-
----
-
-## AI Note
-
-Code scaffolding was drafted with Claude 4 and GPT-4; all scripts were executed, debugged, and verified by the author before release.
+AI note: code scaffolding drafted with Claude 4 and GPT-4; all scripts were executed and checked by the author.
 
 ```
 ```
