@@ -10,6 +10,7 @@ A reproducible pipeline that
 
 
 ## Structure
+```markdown
 
 
 notebooks/                    ← main Python scripts
@@ -22,7 +23,7 @@ notebooks/                    ← main Python scripts
 data/                         ← generated CSV files
 figures/                      ← PDF figures
 requirements.txt              ← pinned packages
-
+``
 
 
 
